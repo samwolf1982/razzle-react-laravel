@@ -52,4 +52,4 @@ ADD ./docker/php-ini/php.ini /usr/local/etc/php/conf.d/php.override.ini
 #    && docker-php-ext-enable xdebug
 
 
-WORKDIR /var/www
+WORKDIR /var/www/public

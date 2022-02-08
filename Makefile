@@ -13,6 +13,9 @@ up-back-live:
 ## консоль php
 cli:
 	docker-compose exec php-cli /bin/bash
+## консоль php-fpm
+cli-fpm:
+	docker-compose exec php-fpm /bin/bash
 
 ## консоль ноды
 cli-node:

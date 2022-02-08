@@ -29,6 +29,7 @@ services:
       - php-fpm2
       - mailhog
       - node
+#      - apch
   
 
 
@@ -62,6 +63,35 @@ services:
      - redis
     tty: true
 
+
+#  apch:
+#    build:
+#      context: ./
+#      dockerfile: docker/apache-custom.docker
+#    # ports:
+#    #  - "80:80"
+#      # - "443:443"
+#    environment:
+#      - "DB_PORT=${MYSQL_DB_PORT}"
+#      - "DB_HOST=${MYSQL_DB_HOST}"
+#      - "REDIS_PORT=6379"
+#      - "REDIS_HOST=redis"
+#    #    volumes:
+#    #      - app_volume:/var/www
+#    volumes:
+#      - ./app-back:/var/www/html
+#      #- ./docker/apch/000-default.conf:/etc/apache2/sites-available/000-default.conf
+#      #- ./docker/apch/api.bixex.local.com.conf:/etc/apache2/sites-available/api.bixex.local.com.conf
+#    # volumes:
+#    #   - type: bind
+#    #     source: ./bixex_prod
+#    #     target: /var/www/html
+#    links:
+#      - mailhog
+#      - node
+#      - mysql
+#      - redis
+#    tty: true
 
 
   php-fpm:
