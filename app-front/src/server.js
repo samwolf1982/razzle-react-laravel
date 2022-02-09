@@ -1,6 +1,6 @@
 import App from './App';
 import React from 'react';
-import { StaticRouter } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom/server';
 import express from 'express';
 import { renderToString } from 'react-dom/server';
 
@@ -23,24 +23,13 @@ const jsScriptTagsFromAssets = (assets, entrypoint, ...extra) => {
 export const renderApp = (req, res) => {
   const context = {};
   const markup = renderToString(
-    <StaticRouter context={context} location={req.url}>
-      <App />
-    </StaticRouter>
+      <StaticRouter context={context} location={req.url}>
+          <App />
+      </StaticRouter>
   );
-  const html = `<!doctype html>
-  <html lang="">
-  <head>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta charset="utf-8" />
-      <title>Недвижимость в Одессе: продажа жилья в Одессе и Одесской области — агентство недвижимости «Dominanta»</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      ${cssLinksFromAssets(assets, 'client')}
-  </head>
-  <body>
-      <div id="root">${markup}</div>
-      ${jsScriptTagsFromAssets(assets, 'client', 'defer', 'crossorigin')}
-  </body>
-</html>`
+  // const markup = '';
+  const html = `<!doctype html><html lang=""><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta charset="utf-8" /><title>Razzle react laravel</title><meta name="viewport" content="width=device-width, initial-scale=1">${cssLinksFromAssets(assets, 'client')}</head><body><div id="root">${markup}</div><div id="root2">${markup}</div>${jsScriptTagsFromAssets(assets, 'client', 'defer', 'crossorigin')}</body></html>`
+    console.log("html",html)
   return {context, html};
 }
 

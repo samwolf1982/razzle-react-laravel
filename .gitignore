@@ -12,3 +12,4 @@ app-back/.env
 app-back/vendor
 app-back/storage
 app-back/bootstrap
+app-front/package-lock.json

@@ -1,13 +1,33 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React ,{Suspense}from 'react';
+import {Route, Routes} from 'react-router-dom';
 import Home from './Home';
 import './App.css';
 
+function isServer(){
+    return typeof window === "undefined";
+}
 
-const App = () => (
-  <Switch>
-    <Route exact={true} path="/" component={Home} />
-  </Switch>
-);
 
-export default App;
+const App = () => {
+   // return <Routes>
+   //     <Route exact={true} path="/" element={ <Home/>} />
+   //  </Routes>
+
+    if(isServer()){
+        return (
+            <Routes>
+                <Route exact={true} path="/" element={ <Home/>} />
+            </Routes>
+        )
+    }else{
+        return (
+            <Routes>
+                <Route exact={true} path="/" element={ <Suspense fallback={<div>Loading...</div>}><Home/></Suspense>} />
+            </Routes>
+        )
+    }
+
+}
+
+
+export default  App;
