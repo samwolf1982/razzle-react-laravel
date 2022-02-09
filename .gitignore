@@ -11,5 +11,4 @@ app-back/.env
 .idea/php.xml
 app-back/vendor
 app-back/storage
-app-back/bootstrap
 app-front/package-lock.json
