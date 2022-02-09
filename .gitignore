@@ -10,5 +10,4 @@ app-back/vendor
 app-back/.env
 .idea/php.xml
 app-back/vendor
-app-back/storage
 app-front/package-lock.json
