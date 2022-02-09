@@ -28,7 +28,7 @@ export const renderApp = (req, res) => {
       </StaticRouter>
   );
   // const markup = '';
-  const html = `<!doctype html><html lang=""><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta charset="utf-8" /><title>Razzle react laravel</title><meta name="viewport" content="width=device-width, initial-scale=1">${cssLinksFromAssets(assets, 'client')}</head><body><div id="root">${markup}</div><div id="root2">${markup}</div>${jsScriptTagsFromAssets(assets, 'client', 'defer', 'crossorigin')}</body></html>`
+  const html = `<!doctype html><html lang=""><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta charset="utf-8" /><title>Razzle react laravel</title><meta name="viewport" content="width=device-width, initial-scale=1">${cssLinksFromAssets(assets, 'client')}</head><body><div id="root">${markup}</div>${jsScriptTagsFromAssets(assets, 'client', 'defer', 'crossorigin')}</body></html>`
     console.log("html",html)
   return {context, html};
 }
