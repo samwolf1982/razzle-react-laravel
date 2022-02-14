@@ -27,8 +27,10 @@ services:
     links:
       - php-fpm
       - php-fpm2
-      - mailhog
+#      - mailhog
       - node
+    networks:
+      - main
 #      - apch
   
 
@@ -61,6 +63,9 @@ services:
     links:
      - mysql
      - redis
+     - php-fpm
+    networks:
+      - main
     tty: true
 
 
@@ -111,6 +116,8 @@ services:
       - mysql
       - redis
       - mailhog
+    networks:
+      - main
 
   php-fpm2:
     build:
@@ -128,7 +135,9 @@ services:
     links:
       - mysql
       - redis
-      - mailhog    
+      - mailhog
+    networks:
+      - main
 
 
   php-cli:
@@ -148,7 +157,10 @@ services:
       - mysql
       - redis
       - mailhog
+    networks:
+      - main
     tty: true
+
 
 
 
@@ -166,6 +178,8 @@ services:
       - "MYSQL_DATABASE=${MYSQL_DATABASE}"
     ports:
       - "${MYSQL_DB_PORT}:3306"
+    networks:
+      - main
 
   redis:
     image: redis
@@ -173,6 +187,8 @@ services:
       - "6379:6379"
     volumes:
       - ./storage/docker/redis:/data
+    networks:
+      main:
       
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -192,3 +208,6 @@ services:
     ports:
       - "${MAIL_HOG_SMTP_PORT}:1025"
       - "${MAIL_HOG_HTTP_PORT}:8025"
+
+networks:
+  main:

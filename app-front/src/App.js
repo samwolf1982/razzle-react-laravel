@@ -12,7 +12,6 @@ const App = () => {
    // return <Routes>
    //     <Route exact={true} path="/" element={ <Home/>} />
    //  </Routes>
-
     if(isServer()){
         return (
             <Routes>
