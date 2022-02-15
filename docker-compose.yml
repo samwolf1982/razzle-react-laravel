@@ -188,7 +188,7 @@ services:
     volumes:
       - ./storage/docker/redis:/data
     networks:
-      main:
+      - main
       
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -200,6 +200,8 @@ services:
       - "MYSQL_USER=${MYSQL_USER}"
       - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
       - "MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}"
+    networks:
+      - main
 
 
 #  url http://localhost:8025
