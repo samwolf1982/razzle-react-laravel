@@ -210,6 +210,8 @@ services:
     ports:
       - "${MAIL_HOG_SMTP_PORT}:1025"
       - "${MAIL_HOG_HTTP_PORT}:8025"
+    networks:
+      - main
 
 networks:
   main:
