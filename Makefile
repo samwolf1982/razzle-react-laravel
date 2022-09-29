@@ -1,8 +1,8 @@
 # запуск бекенда 
-up-back:
+up:
 	docker-compose  up --build -d
 # запуск бекенда с логом
-up-back-live:
+up-live:
 	docker-compose  up --build
 
 
